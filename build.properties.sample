@@ -1,0 +1,2 @@
+dest.www = /srv/www/mysite.net/htdocs
+dest.lib = /srv/www/mysite.net/lib

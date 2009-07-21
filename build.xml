@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="littledropsofcode" default="deploy" basedir=".">
+  <property file="build.properties" />
+
+  <property name="src.www" value="www" />
+  <property name="src.lib" value="libldoc" />
+  <property name="dest.www" value="/var/www" />
+  <property name="dest.lib" value="/usr/local/lib/ldoc" />
+
+  <target name="deploy">
+    <copy todir="${dest.www}">
+      <fileset dir="${src.www}" />
+    </copy>
+
+    <copy todir="${dest.lib}">
+      <fileset dir="${src.lib}" />
+    </copy>
+  </target>
+</project>
