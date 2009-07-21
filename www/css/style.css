@@ -3,3 +3,22 @@ body {
     margin:		    0;
 }
 
+div#page {
+    margin:		    10px auto;
+    width:		    980px;
+}
+
+div#page-header {
+    color:		    #808080;
+    font-size:		    xx-large;
+    font-weight:	    bold;
+    text-align:		    center;
+}
+
+div#page-footer {
+    color:		    #808080;
+    font-size:		    small;
+    font-style:		    italic;
+    margin-top:		    10px;
+    text-align:		    center;
+}

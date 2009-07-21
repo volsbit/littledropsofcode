@@ -5,5 +5,16 @@
   </head>
 
   <body>
+    <div id="page">
+      <div id="page-header">
+	Litte drops of code
+      </div>
+
+      <p>This is just a placeholder. To be removed.</p>
+
+      <div id="page-footer">
+	Copyright &copy; 2009 Lorenzo Cabrini
+      </div>
+    </div>
   </body>
 </html>
