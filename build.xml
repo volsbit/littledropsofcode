@@ -3,10 +3,22 @@
 <project name="littledropsofcode" default="deploy" basedir=".">
   <property file="build.properties" />
 
+  <property name="src.db" value="db" />
   <property name="src.www" value="www" />
   <property name="src.lib" value="libldoc" />
   <property name="dest.www" value="/var/www" />
   <property name="dest.lib" value="/usr/local/lib/ldoc" />
+
+  <property name="db.type" value="mysql" />
+  <property name="db.user" value="ldocuser" />
+  <property name="db.pass" value="makethisabiggeRsecr3t" />
+  <property name="db.name" value="ldoc" />
+  <property name="db.host" value="localhost" />
+  <property name="db.driver" value="package.Driver" />
+  <property name="db.driver.path" value="/usr/share/java/${db.driver}" />
+  <property name="db.schema" value="${src.db}/${db.type}_schema.sql" />
+  <property name="db.data" value="${src.db}/${db.type}_data.sql" />
+  <property name="db.url" value="jdbc:${db.type}://${db.host}/${db.name}" />
 
   <target name="deploy">
     <copy todir="${dest.www}">
@@ -16,5 +28,17 @@
     <copy todir="${dest.lib}">
       <fileset dir="${src.lib}" />
     </copy>
+  </target>
+
+  <target name="setup-db">
+    <sql driver="${db.driver}" url="${db.url}" userid="${db.user}" 
+	      password="${db.pass}">
+      <transaction src="${db.schema}" />
+      <transaction src="${db.data}" />
+
+      <classpath>
+	<pathelement location="${db.driver.path}" />
+      </classpath>
+    </sql>
   </target>
 </project>
